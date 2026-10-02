@@ -1,0 +1,22 @@
+# BasicRevokeOAuthGrantFlow
+
+main: kit: flow: BasicRevokeOAuthGrantFlow:
+{
+  entity: "revoke_o_auth_grant",
+  kind: "basic",
+  name: "BasicRevokeOAuthGrantFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "revoke_o_auth_grant_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRevokeOAuthGrantFlow"
+}

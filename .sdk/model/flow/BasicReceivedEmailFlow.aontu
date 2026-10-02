@@ -1,0 +1,44 @@
+# BasicReceivedEmailFlow
+
+main: kit: flow: BasicReceivedEmailFlow:
+{
+  entity: "received_email",
+  kind: "basic",
+  name: "BasicReceivedEmailFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "received_email_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "received_email_ref01",
+        srcdatavar: "received_email_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "received_email01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-received_email_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReceivedEmailFlow"
+}
